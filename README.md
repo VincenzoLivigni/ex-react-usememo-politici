@@ -19,3 +19,14 @@ Milestone 2: Implementare la ricerca ottimizzata
         un array derivato filtrato, che viene aggiornato solo quando cambia la lista di politici o il valore della ricerca.
 
 ✅ - 3 Non usare useEffect per aggiornare l’array filtrato.
+
+
+
+
+Milestone 3: Ottimizzare il rendering delle card con React.memo
+✅- 1 Attualmente, ogni volta che l’utente digita nella barra di ricerca, tutte le card vengono ri-renderizzate, anche quelle che 
+     non sono cambiate.
+
+✅ - 2 Usa React.memo() per evitare il ri-render delle card quando le loro props non cambiano.
+
+✅ - 3 Aggiungi un console.log() dentro il componente Card per verificare che venga renderizzato solo quando necessario.

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react"
+import Card from "../components/Card"
 
 function App() {
 
@@ -30,9 +31,9 @@ function App() {
 
       <main className="bg-light">
         <div className="container">
-          <input className="mt-5"
+          <input className="mt-5 rounded-3"
             type="text"
-            placeholder="Search"
+            placeholder=" Search"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
@@ -40,22 +41,10 @@ function App() {
           <div className="row row-cols-4">
             {
               politiciansFiltered.map((p) => (
-                <div key={p.id} className="col d-flex">
-                  <div className="card my-5 flex-fill rounded-4">
-                    <img src={p.image} className="rounded-4 rounded-bottom-0" />
-                    <div className="card-body">
-                      <p>
-                        <strong>Name:</strong> <span>{p.name}</span>
-                      </p>
-                      <p>
-                        <strong>Position:</strong> <span>{p.position}</span>
-                      </p>
-                      <p>
-                        <strong>Biography:</strong> <span>{p.biography}</span>
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <Card
+                  key={p.id}
+                  p={p}
+                />
               ))
             }
           </div>

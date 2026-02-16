@@ -11,3 +11,12 @@ img {
     height: 350px;
     object-fit: cover;
 }
+
+h1,
+.card {
+    box-shadow: #343a40 0px 0px 5px 1px;
+}
+
+h1 {
+    text-shadow: 2px 2px #adb5bd
+}
