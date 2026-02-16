@@ -1,18 +1,26 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 
 function App() {
 
   const [politicians, setPoliticians] = useState([])
 
-  const loadPoliticians = async () => {
-    const res = await fetch("http://localhost:3333/politicians")
-    const data = await res.json()
-    setPoliticians(data)
-  }
+  const [search, setSearch] = useState("")
 
   useEffect(() => {
+    const loadPoliticians = async () => {
+      const res = await fetch("http://localhost:3333/politicians")
+      const data = await res.json()
+      setPoliticians(data)
+    }
     loadPoliticians()
   }, [])
+
+  const politiciansFiltered = useMemo(() => {
+    return politicians.filter((p) => (
+      p.name.toLowerCase().includes(search.toLowerCase()) ||
+      p.biography.toLowerCase().includes(search.toLowerCase())
+    ))
+  }, [politicians, search])
 
   return (
     <>
@@ -22,9 +30,16 @@ function App() {
 
       <main className="bg-light">
         <div className="container">
+          <input className="mt-5"
+            type="text"
+            placeholder="Search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+
           <div className="row row-cols-4">
             {
-              politicians.map((p) => (
+              politiciansFiltered.map((p) => (
                 <div key={p.id} className="col d-flex">
                   <div className="card my-5 flex-fill rounded-4">
                     <img src={p.image} className="rounded-4 rounded-bottom-0" />

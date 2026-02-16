@@ -1,4 +1,4 @@
-📌 Milestone 1: Recuperare e visualizzare i dati
+Milestone 1: Recuperare e visualizzare i dati
 ✅ - 1 Effettua una chiamata API a http://localhost:3333/politicians
 
 ✅ - 2 Salva la risposta in uno stato React (useState).
@@ -8,3 +8,14 @@
         Immagine (image)
         Posizione (position)
         Breve biografia (biography)
+
+
+
+
+Milestone 2: Implementare la ricerca ottimizzata
+✅ - 1 Aggiungi un campo di ricerca (<input type="text">) sopra la lista dei politici.
+
+✅ - 2 Permetti all’utente di filtrare i risultati in base a nome o biografia (se il testo cercato è incluso). Suggerimento: Creare
+        un array derivato filtrato, che viene aggiornato solo quando cambia la lista di politici o il valore della ricerca.
+
+✅ - 3 Non usare useEffect per aggiornare l’array filtrato.
